@@ -11,6 +11,8 @@ namespace My_API.Controllers
     public class ValuesController : ControllerBase
     {
         private ValuesDao valuesDao;
+        private ValuesDaoV2 valuesDao2;
+
         public ValuesController() {
             valuesDao = new ValuesDao();
         }
@@ -25,6 +27,8 @@ namespace My_API.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(string id)
         {
+            id = valuesDao2.getValue2(id);
+    
             return valuesDao.getValue(id);
         }
 
