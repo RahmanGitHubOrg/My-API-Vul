@@ -27,7 +27,7 @@ namespace My_API.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(string id)
         {
-            id = valuesDao2.getValue2(id);
+            var data = valuesDao2.getValue2(id);
     
             return valuesDao.getValue(id);
         }
