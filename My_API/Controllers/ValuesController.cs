@@ -34,9 +34,9 @@ namespace My_API.Controllers
 
         
         [HttpGet("{id}")]
-        public ActionResult<string> GetValuesDao2(string id)
+        public ActionResult<string> GetV2(string id)
         {
-            var data = valuesDao2.getValue2(id);
+            var data = valuesDao.getValue2(id);
     
             return Ok(data);
         }
