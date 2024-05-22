@@ -13,7 +13,8 @@ namespace My_API.Controllers
         private ValuesDao valuesDao;
         private ValuesDaoV2 valuesDao2;
 
-        public ValuesController() {
+        public ValuesController()
+        {
             valuesDao = new ValuesDao();
             valuesDao2 = new ValuesDaoV2();
         }
@@ -28,16 +29,32 @@ namespace My_API.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(string id)
         {
-   
+
             return valuesDao.getValue(id);
         }
 
-        
+
         [HttpGet("{id}")]
         public ActionResult<string> GetV2(string id)
         {
             var data = valuesDao.getValue2(id);
-    
+
+            return Ok(data);
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<string> GetV3(string id)
+        {
+            var data = valuesDao2.getValue(id);
+
+            return Ok(data);
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<string> GetV4(string id)
+        {
+            var data = valuesDao2.getValue2(id);
+
             return Ok(data);
         }
 
